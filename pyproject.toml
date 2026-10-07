@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "structroute"
+version = "0.1.0"
+description = "Syntax-routed mixture-of-experts experiments for C defect detection"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "datasets>=3.0,<5",
+  "numpy>=1.26,<3",
+  "pyyaml>=6.0,<7",
+  "scikit-learn>=1.5,<2",
+  "torch>=2.3,<3",
+  "transformers>=4.45,<6",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<10",
+  "ruff>=0.7,<1",
+]
+
+[project.scripts]
+structroute-inspect-data = "structroute.data.dataset:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/structroute"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+

@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local datasets, model weights, and experiment artifacts
+data/raw/
+data/processed/
+checkpoints/
+outputs/
+reports/results/*.json
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
